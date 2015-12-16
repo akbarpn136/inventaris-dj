@@ -23,9 +23,9 @@
             {% for alat in Peralatan %}
             <tr>
                 <td>{{ forloop.counter }}</td>
-                <td>{{ alat.ruang_alat }}</td>
-                <td>{{ alat.kategori_alat }}</td>
-                <td>{{ alat.personal_alat }}</td>
+                <td class="ruang">{{ alat.ruang_alat }}</td>
+                <td class="kategori">{{ alat.kategori_alat }}</td>
+                <td class="personal">{{ alat.personal_alat.first_name|default:alat.personal_alat }}</td>
                 <td>{{ alat.nama_alat }}</td>
                 <td>{{ alat.ip_alat|default:'-' }}</td>
                 <td>{{ alat.keterangan_alat|default:'-' }}</td>
@@ -42,5 +42,50 @@
             {% endfor %}
         </tbody>
     </table>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var cariRuang = {};
+            $('td.ruang').each(function(){
+                var teks = $(this).text();
+                if(cariRuang[teks])
+                {
+                    $(this).text('');
+                }
+
+                else
+                {
+                    cariRuang[teks] = true;
+                }
+            });
+
+            var cariKategori = {};
+            $('td.kategori').each(function(){
+                var teks = $(this).text();
+                if(cariKategori[teks])
+                {
+                    $(this).text('');
+                }
+
+                else
+                {
+                    cariKategori[teks] = true;
+                }
+            });
+
+            var caripersonal = {};
+            $('td.personal').each(function(){
+                var teks = $(this).text();
+                if(caripersonal[teks])
+                {
+                    $(this).text('');
+                }
+
+                else
+                {
+                    caripersonal[teks] = true;
+                }
+            });
+        });
+    </script>
 </div>
 {% endblock %}
