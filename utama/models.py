@@ -5,9 +5,15 @@ from django.db import models
 class Ruangan(models.Model):
     nama_ruang = models.CharField(max_length=100, verbose_name='Nama Ruangan')
 
+    def __str__(self):
+        return self.nama_ruang
+
 
 class Kategori(models.Model):
     nama_kategori = models.CharField(max_length=200, verbose_name='Kategori')
+
+    def __str__(self):
+        return self.nama_kategori
 
 
 class Peralatan(models.Model):
