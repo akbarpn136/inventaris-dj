@@ -25,13 +25,14 @@
                 <td>{{ forloop.counter }}</td>
                 <td class="ruang">{{ alat.ruang_alat }}</td>
                 <td class="kategori">{{ alat.kategori_alat }}</td>
-                <td class="personal">{{ alat.personal_alat.first_name|default:alat.personal_alat }}</td>
+                <td class="personal">{{ alat.personal_alat.first_name|default:alat.personal_alat }} {{ alat.personal_alat.last_name }}</td>
                 <td>{{ alat.nama_alat }}</td>
                 <td>{{ alat.ip_alat|default:'-' }}</td>
                 <td>{{ alat.keterangan_alat|default:'-' }}</td>
             </tr>
             {% empty %}
             <tr>
+                <td>N/A</td>
                 <td>N/A</td>
                 <td>N/A</td>
                 <td>N/A</td>
