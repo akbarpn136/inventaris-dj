@@ -1,0 +1,46 @@
+{% extends 'master/base.html' %}
+
+{% block utama %}
+<div class="ui stackable container">
+    <div style="padding: 10px;"></div>
+    <div class="ui tall stacked segment">
+        <h3 class="ui header">DAFTAR PERALATAN LAGG</h3>
+    </div>
+    <table class="ui compact table" style="background-color: white;">
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>Ruang</th>
+                <th>Kategori</th>
+                <th>Koordinator</th>
+                <th>Tipe/Merk</th>
+                <th>IP</th>
+                <th>Keterangan</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for alat in Peralatan %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ alat.ruang_alat }}</td>
+                <td>{{ alat.kategori_alat }}</td>
+                <td>{{ alat.personal_alat }}</td>
+                <td>{{ alat.nama_alat }}</td>
+                <td>{{ alat.ip_alat|default:'-' }}</td>
+                <td>{{ alat.keterangan_alat|default:'-' }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>N/A</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
