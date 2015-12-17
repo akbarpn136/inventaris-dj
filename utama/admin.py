@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import Ruangan, Kategori, Peralatan
 
 
-class PeralatanInline(admin.StackedInline):
+class PeralatanInline(admin.TabularInline):
     model = Peralatan
     extra = 0
 
