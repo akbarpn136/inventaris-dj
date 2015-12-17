@@ -6,6 +6,15 @@
     <div class="ui tall stacked segment">
         <h3 class="ui header">DAFTAR PERALATAN LAGG</h3>
     </div>
+    <div class="ui green message">
+        <div class="header">
+            Informasi
+        </div>
+        <ul class="list">
+            <li>Total komputer: {{ komputer.count }} | Total printer: {{ printer.count }}</li>
+            <li>Total komputer rusak: {{ komputer_rusak.count }} | Total printer rusak: {{ printer_rusak.count }}</li>
+        </ul>
+    </div>
     <table class="ui compact table" style="background-color: white;">
         <thead>
             <tr>
@@ -15,6 +24,7 @@
                 <th>Koordinator</th>
                 <th>Tipe/Merk</th>
                 <th>IP</th>
+                <th>Kondisi</th>
                 <th>Keterangan</th>
             </tr>
         </thead>
@@ -28,10 +38,18 @@
                 <td class="personal">{{ alat.personal_alat.first_name|default:alat.personal_alat }} {{ alat.personal_alat.last_name }}</td>
                 <td>{{ alat.nama_alat }}</td>
                 <td>{{ alat.ip_alat|default:'-' }}</td>
+                <td>
+                    {% if alat.kondisi_alat == True %}
+                        Bagus
+                    {% else %}
+                        Rusak
+                    {% endif %}
+                </td>
                 <td>{{ alat.keterangan_alat|default:'-' }}</td>
             </tr>
             {% empty %}
             <tr>
+                <td>N/A</td>
                 <td>N/A</td>
                 <td>N/A</td>
                 <td>N/A</td>
