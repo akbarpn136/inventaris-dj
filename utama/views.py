@@ -4,7 +4,7 @@ from .models import Peralatan
 
 # Create your views here.
 def utama(request):
-    data_alat = Peralatan.objects.select_related().order_by('kategori_alat')
+    data_alat = Peralatan.objects.select_related().order_by('ruang_alat')
     data_komputer = Peralatan.objects.filter(kategori_alat__nama_kategori='Komputer')
     data_printer = Peralatan.objects.filter(kategori_alat__nama_kategori='Printer')
 
