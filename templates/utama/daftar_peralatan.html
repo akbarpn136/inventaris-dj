@@ -31,7 +31,7 @@
 
         <tbody>
             {% for alat in Peralatan %}
-            <tr>
+            <tr {% if alat.kondisi_alat == False %}style="background-color: #9F3A38;" {% endif %}>
                 <td>{{ forloop.counter }}</td>
                 <td class="ruang">{{ alat.ruang_alat }}</td>
                 <td class="kategori">{{ alat.kategori_alat }}</td>
