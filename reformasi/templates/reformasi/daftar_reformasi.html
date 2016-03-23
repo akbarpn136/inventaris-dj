@@ -23,19 +23,21 @@
         <thead>
             <tr>
                 <th>No.</th>
-                <th>Kategori</th>
+                <th class="sorted descending">Kategori</th>
                 <th>Dokumen</th>
                 <th>Opsi</th>
             </tr>
         </thead>
 
         <tbody>
-            {% for alat in Peralatan %}
+            {% for dok in dokumen %}
             <tr>
                 <td>{{ forloop.counter }}</td>
-                <td class="ruang">{{ alat.ruang_alat }}</td>
-                <td class="kategori">{{ alat.kategori_alat }}</td>
-                <td>{{ alat.nama_alat }}</td>
+                <td>{{ dok.kategori_dokumen }}</td>
+                <td>{{ dok.nama_dokumen }}</td>
+                <td>
+                    <a href="{{ dok.url_dokumen }}" class="ui google plus fluid button">Baca Dokumen</a>
+                </td>
             </tr>
             {% empty %}
             <tr>
