@@ -1,0 +1,51 @@
+{% extends 'master/base.html' %}
+{% block judul_aplikasi %}Reformasi Birokrasi BBTA3{% endblock %}
+
+{% block utama %}
+<div class="ui stackable container">
+    <div style="padding: 10px;"></div>
+    <div class="ui tall stacked segment">
+        <h3 class="ui header">DAFTAR KELENGKAPAN PERSYARATAN</h3>
+    </div>
+    <div class="ui message">
+        <div class="header">
+            Informasi
+        </div>
+        <ul class="list">
+            <li>Dokumen-dokumen berikut merupakan data terbuka untuk publik dan terintegrasi dengan aplikasi berbasis
+                web berupa <a href="http://10.10.42.15" class="ui primary button">Portal BBTA3</a>
+            </li>
+
+            <li>Dokumen-dokumen terlampir sebagai berikut ini:</li>
+        </ul>
+    </div>
+    <table class="ui sortable celled table" style="background-color: white;">
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>Kategori</th>
+                <th>Dokumen</th>
+                <th>Opsi</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for alat in Peralatan %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td class="ruang">{{ alat.ruang_alat }}</td>
+                <td class="kategori">{{ alat.kategori_alat }}</td>
+                <td>{{ alat.nama_alat }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>N/A</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
